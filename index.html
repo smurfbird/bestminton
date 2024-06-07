@@ -13,26 +13,33 @@
     <nav>
         <ul>
             <li><a href="#page1">Interesting Highlights</a></li>
-            <li><a href="#page2">Famous Players</a></li>
+            <li><a href="#page2">Famous Badminton Players</a></li>
             <li><a href="#page3">Basics in Badminton</a></li>
         </ul>
     </nav>
 
     <div id="page1" class="page active">
+        <button onclick="filterItems('all')">Show All</button>
+        <button onclick="filterItems('MS')">MS</button>
+        <button onclick="filterItems('WS')">WS</button>
+        <button onclick="filterItems('MD')">MD</button>
+        <button onclick="filterItems('WD')">WD</button>
+        <button onclick="filterItems('XD')">XD</button>
+
         <div class="video-container">
-            <div class="video">
+            <div class="video item XD">
                 <iframe src="https://www.youtube.com/embed/DaajLRutOnk" allowfullscreen></iframe>
                 <p>HEE & TAN vs KANEKO & MATSU | KAPAL API INDONESIA OPEN 2024</p>
             </div>
-            <div class="video">
+            <div class="video item MS">
                 <iframe src="https://www.youtube.com/embed/Y2OZX2nBEig" allowfullscreen></iframe>
                 <p>LOH Kean Yew vs Kunlavut VITIDSARN | KAPAL API INDONESIA OPEN 2024</p>
             </div>
-            <div class="video">
+            <div class="video item MS">
                 <iframe src="https://www.youtube.com/embed/EXr5XDm1XkQ" allowfullscreen></iframe>
                 <p>LI Shi Feng vs LOH Kean Yew H/L | KFF SINGAPORE BADMINTON OPEN 2024</p>
             </div>
-            <div class="video">
+            <div class="video item MS">
                 <iframe src="https://www.youtube.com/embed/ieuibSyGeto" allowfullscreen></iframe>
                 <p>Anders ANTONSEN vs LOH Kean Yew | KFF SINGAPORE BADMINTON OPEN 2024</p>
             </div>
@@ -41,7 +48,18 @@
     </div>
 
     <div id="page2" class="page">
-        <h2>Top 10 Badminton Players</h2>
+        <input type="text" id="searchInput" placeholder="Search by name or country..." onkeyup="filterPlayers()">
+        <select id="countryFilter" onchange="filterPlayers()">
+            <option value="">Select a country</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Japan">Japan</option>
+            <option value="China">China</option>
+            <option value="Chinese Taipei">Chinese Taipei</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="India">India</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Spain">Spain</option>
+        </select>
         <table>
             <thead>
                 <tr>
@@ -186,32 +204,6 @@
             </div>
             </div>
     </div>
-    <script>
-        // Function to switch between pages
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-
-            // Show the selected page
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-            }
-        }
-
-        // Add event listeners to navigation links
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const pageId = this.getAttribute('href').substr(1); // Remove '#' from href
-                showPage(pageId);
-            });
-        });
-
-        // Show the initial page
-        showPage('page1');
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
