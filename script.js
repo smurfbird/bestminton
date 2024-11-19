@@ -48,8 +48,8 @@ function filterPlayers() {
 
     // Loop through all table rows, and hide those who don't match the search query or selected country
     for (i = 0; i < tr.length; i++) {
-        tdName = tr[i].getElementsByTagName("td")[0]; // Name is in the second column
-        tdCountry = tr[i].getElementsByTagName("td")[1]; // Country is in the third column
+        tdName = tr[i].getElementsByTagName("td")[1]; // Name is in the second column
+        tdCountry = tr[i].getElementsByTagName("td")[2]; // Country is in the third column
         if (tdName || tdCountry) {
             txtValueName = tdName.textContent || tdName.innerText;
             txtValueCountry = tdCountry.textContent || tdCountry.innerText;
